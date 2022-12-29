@@ -29,7 +29,6 @@ productRoute.post("/createproduct", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -40,7 +39,6 @@ productRoute.get("/getallproduct", async (req, res) => {
     const output = await productModel.find();
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -53,7 +51,6 @@ productRoute.get("/fruit", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -65,7 +62,6 @@ productRoute.get("/vegetable", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -78,7 +74,6 @@ productRoute.get("/sweet", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -90,7 +85,6 @@ productRoute.get("/dryfruit", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -103,7 +97,6 @@ productRoute.get("/dairy", async (req, res) => {
     });
     res.status(200).json({
         success: true,
-        message: "Card Created Successfully",
         output
     })
 })
@@ -121,7 +114,8 @@ productRoute.post("/search", async (req, res) => {
     const productData = await productModel.find({$or:[{title:{$regex:new RegExp(search,"i")}},{detail:{$regex:new RegExp(search,"i")}}]})
     console.log(productData);
     res.status(200).json({
-        success: true
+        success: true,
+        productData
     })
 })
 
